@@ -44,7 +44,7 @@ cursor.on('data', function(doc) {
     return _.merge(item,p);
   })
   doc.remove();
-  lpcase.insertMany(objs, function(err,docs) {
+  lpcase.insertMany(objs, {rawResult: true, ordered: false },function(err,docs) {
     if(err) {
       console.log(err)
     }else{
